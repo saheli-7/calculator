@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            margin-left: 40%;
+            margin-top: 5%;   
+        }
+        #calculator{
+            width:25%;
+            height: 37px;
+            background-color: rgba(101, 99, 99, 0.5);
+            color:white ;
+            font-size: 20px;
+        }
+        #b1{
+            text-align:center;
+            height: 30px;
+            width: 54px;
+            margin-top: 1%;
+            background-color: rgba(101, 99, 99, 0.5);
+            color: white;
+            font-weight: 500;
+            font-size: 17px;
+        }
+        #b3{
+            text-align:center;
+            height: 30px;
+            width: 54px;
+            margin-top: 1%;
+            background-color: rgba(101, 99, 99, 0.5);
+            color: white;
+            font-weight: 500;
+            font-size: 15px; 
+        }
+        #equal{
+            text-align:center;
+            height: 30px;
+            width: 54px;
+            margin-top: 1%;
+            background-color: rgba(101, 99, 99, 0.5);
+            color: white;
+            font-weight: 500;
+            font-size: 15px;
+        }
+        #b2{
+            text-align:center;
+            height: 30px;
+            width: 52px;
+            margin-top: 1%;
+            font-size: 8px;
+            margin-left: 19.8%;
+            background-color:rgba(101, 99, 99, 0.5);
+            color: white;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+    <input id="calculator">
+    <br>
+    <button id="b2" onClick='del()'>Backspace</button><br>
+
+    <button id="b1" onClick="fun('(')">(</button>
+    <button id="b1" onClick="fun(')')">)</button>
+    <button id="b1" onClick="fun('%')">%</button>
+
+    <button id="b3" onClick="clear1()">c</button><br>
+
+    <button id="b1" onClick="fun('7')">7</button>
+    <button id="b1" onClick="fun('8')">8</button>
+    <button id="b1" onClick="fun('9')">9</button>
+    <button id="b1" onClick="fun('/')">/</button><br>
+
+    <button id="b1" onClick="fun('4')">4</button>
+    <button id="b1" onClick="fun('5')">5</button>
+    <button id="b1" onClick="fun('6')">6</button>
+    <button id="b1" onClick="fun('*')">*</button><br>
+
+    <button id="b1" onClick="fun('1')">1</button>
+    <button id="b1" onClick="fun('2')">2</button>
+    <button id="b1" onClick="fun('3')">3</button>
+    <button id="b1" onClick="fun('-')">-</button><br>
+
+    <button id="b1" onClick="fun('0')">0</button>
+    <button id="b1" onClick="fun('.')">.</button>
+    <button id="b1" onClick="fun('+')">+</button>
+
+    <button id="equal" onClick="calculate()">=</button></div>
+
+
+
+    <script>
+        function fun(x){
+            document.getElementById('calculator').value +=x;
+        }
+        function calculate(){
+            try{
+                res = eval(document.getElementById('calculator').value);
+            }
+            catch(Exception){
+                alert('Error');
+                document.getElementById('calculator').value = '';
+            }
+            document.getElementById('calculator').value = res;
+        }
+        function del(){
+            x = document.getElementById('calculator').value;
+            document.getElementById('calculator').value = x.slice(0,x.length-1);
+
+        }
+        function clear1(){
+            document.getElementById('calculator').value = '';
+        }
+    </script>
+</body>
+</html>
